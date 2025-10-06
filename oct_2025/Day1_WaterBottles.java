@@ -46,4 +46,41 @@ public class Day1_WaterBottles{
         System.out.println("Maximum number of water bottles you can drink: " + result);
         sc.close();
     }
+
+    // Second logic method.
+    public int numBottles(int numBottles, int numExchange) {
+        int result = numBottles;
+        int empty = numBottles;
+        while (empty >= numExchange) {
+            empty = empty - numExchange;
+            result++;
+            empty++;
+        }
+        return result;
+
+        /*
+          code explanation:
+          
+         int result = numBottles;: result stores the total number of bottles drunk.
+         Initially, you drink all numBottles you start with.
+         int empty = numBottles;: empty stores the current count of empty bottles.
+         After drinking the initial numBottles, you will have numBottles empty
+         bottles.
+         
+         Exchange Loop:
+         
+         while(empty >= numExchange): This loop continues as long as you have enough
+         empty bottles (empty) to exchange for a new full bottle (numExchange).
+         empty = empty - numExchange;: You use numExchange empty bottles to get a new
+         one, so these are deducted from your empty count.
+         result++;: You get one new full bottle, drink it, so the total result
+         increases by one.
+         empty++;: After drinking the new bottle, it becomes an empty bottle, so your
+         empty count increases by one.
+         Return Value:
+         
+         return result;: Once you no longer have enough empty bottles to make an
+         exchange, the loop terminates, and the final result (total bottles drunk) is
+         returned.
+         */
 }
